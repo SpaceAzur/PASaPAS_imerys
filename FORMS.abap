@@ -102,9 +102,6 @@ FORM display_alv_by_piece.
    is_print                          = ls_print
     TABLES
    t_outtab                          = gt_bypiece
-* EXCEPTIONS
-*   PROGRAM_ERROR                     = 1
-*   OTHERS                            = 2
             .
   IF sy-subrc <> 0.
 * Implement suitable error handling here
@@ -140,9 +137,6 @@ FORM display_alv_by_user.
    is_print                          = ls_print
     TABLES
    t_outtab                          = gt_byuser
-* EXCEPTIONS
-*   PROGRAM_ERROR                     = 1
-*   OTHERS                            = 2
             .
   IF sy-subrc <> 0.
 * Implement suitable error handling here
