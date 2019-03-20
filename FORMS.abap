@@ -12,6 +12,7 @@
 *----Récupèration des données comptables dans la table bkpf
 FORM get_data.
 
+  CLEAR gt_compta.
   SELECT bukrs belnr blart tcode bktxt monat gjahr bldat usnam budat
          INTO TABLE gt_compta
          FROM bkpf WHERE bukrs = p_bukrs AND gjahr = p_gjahr
@@ -40,6 +41,7 @@ FORM manage_data_by_piece.
     DELETE ADJACENT DUPLICATES FROM gt_dpiece COMPARING blart.
 
     CLEAR gs_compta.
+    CLEAR gt_dpiece.
     SORT gt_compta BY blart.
     LOOP AT gt_compta INTO gs_compta.
       gs_bypiece-blart = gs_compta-blart.
@@ -64,6 +66,7 @@ ENDFORM. "manage_data_by_piece
 FORM manage_data_by_user.
 
   CLEAR gs_compta.
+  CLEAR gt_byuser.
   SORT gt_compta BY usnam.
   LOOP AT gt_compta INTO gs_compta.
     gs_byuser-usnam = gs_compta-usnam.
