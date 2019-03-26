@@ -7,15 +7,22 @@
 SELECTION-SCREEN BEGIN OF BLOCK b1
                 WITH FRAME TITLE text-t01.
 
-PARAMETERS :        p_bukrs   LIKE  bkpf-bukrs  OBLIGATORY,
-                    p_gjahr   LIKE  bkpf-gjahr  OBLIGATORY,
-                    p_monat   LIKE  bkpf-monat  OBLIGATORY,
-                    p_blart   LIKE  bkpf-blart,
-                    p_usnam   LIKE  bkpf-usnam,
-                    bypiece   RADIOBUTTON GROUP choi,
-                    byusers   RADIOBUTTON GROUP choi.
-
-select-options :    so_bldat  FOR   bkpf-bldat,
+SELECT-OPTIONS :    so_bukrs  FOR   bkpf-bukrs,
+                    so_gjahr  FOR   bkpf-gjahr,
+                    so_monat  FOR   bkpf-monat,
+                    so_bldat  FOR   bkpf-bldat,
                     so_budat  FOR   bkpf-budat.
+
+SELECTION-SCREEN SKIP 1.
+
+PARAMETERS :        bypiece   RADIOBUTTON GROUP choi.
+
+SELECT-OPTIONS :    so_blart   FOR  bkpf-blart.
+
+SELECTION-SCREEN SKIP 1.
+
+PARAMETERS :        byusers   RADIOBUTTON GROUP choi.
+
+SELECT-OPTIONS :    so_usnam   FOR  usr02-bname.
 
 SELECTION-SCREEN END OF BLOCK b1.
