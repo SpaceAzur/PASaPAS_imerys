@@ -13,6 +13,7 @@
 
 FORM get_data.
 
+  CLEAR gt_compta.
   SELECT bukrs belnr blart tcode bktxt monat gjahr bldat usnam budat
          INTO TABLE gt_compta
          FROM bkpf WHERE bukrs IN so_bukrs AND gjahr IN so_gjahr
@@ -46,6 +47,7 @@ FORM manage_data_by_piece.
 *----Sélection pour le type de pièce demandé
 
     CLEAR gs_compta.
+    CLEAR gt_dpiece.
     SORT gt_compta BY blart.
     LOOP AT gt_compta INTO gs_compta.
       gs_bypiece-blart = gs_compta-blart.
@@ -70,6 +72,7 @@ ENDFORM. "manage_data_by_piece
 *----------------------------------------------------------------------*
 FORM manage_data_by_user.
 
+<<<<<<< HEAD
     CLEAR gs_compta.
     SORT gt_compta BY usnam.
     LOOP AT gt_compta INTO gs_compta.
